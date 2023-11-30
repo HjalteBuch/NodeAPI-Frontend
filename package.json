@@ -1,0 +1,16 @@
+{
+  "name": "advworks",
+  "version": "1.0.0",
+  "description": "Test site where I follow the Code Magazine article",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hjalte",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
