@@ -46,12 +46,8 @@ router.get('/search/', async (req, res, next) => {
             if (!search.name && search.listPrice) {
                 request += `/search?listPrice=${search.listPrice}`;
             }
-            console.log("request: ");
-            console.log(request);
 
             let response = await tiny.get({"url": request});
-            console.log("response: ");
-            console.log(response);
             let data = response.body.data;
             res.render('product',
                 {
@@ -71,6 +67,25 @@ router.get('/search/', async (req, res, next) => {
         else {
             res.redirect('/product');
         }
+    } catch (err) {
+        next(err)
+    }
+});
+
+router.get('/:id', async (req, res, next) => {
+    try {
+        let request = url + `/${req.params.id}`;
+        let response = await tiny.get({"url": request});
+        let data = response.body.data;
+
+        res.render('product',
+            {
+                "isVisible": false,
+                "isAdding": false,
+                "detail": data
+            }
+        );
+
     } catch (err) {
         next(err)
     }

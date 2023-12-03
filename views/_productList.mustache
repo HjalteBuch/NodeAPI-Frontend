@@ -6,6 +6,7 @@
 <table class="mt-2 table table-striped table-bordered">
     <thead>
         <tr>
+            <th>Actions</th>
             <th>Product ID</th>
             <th>Product Name</th>
             <th>Product Number</th>
@@ -17,6 +18,11 @@
     <tbody>
         {{#data}}
             <tr>
+                <td>
+                    <a href="product/{{ProductID}}" class="btn btn-primary">
+                        Edit
+                    </a>
+                </td>
                 <td>{{ProductID}}</td>
                 <td>{{Name}}</td>
                 <td>{{ProductNumber}}</td>
