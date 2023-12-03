@@ -1,0 +1,24 @@
+<table>
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Product Number</th>
+            <th>Color</th>
+            <th class="text-end">Cost</th>
+            <th class="text-end">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#data}}
+            <tr>
+                <td>{{productID}}</td>
+                <td>{{name}}</td>
+                <td>{{productNumber}}</td>
+                <td>{{color}}</td>
+                <td class="text-end">{{standardCost}}</td>
+                <td class="text-end">{{listPrice}}</td>
+            </tr>
+        {{/data}}
+    </tbody>
+</table>

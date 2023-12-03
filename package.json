@@ -4,13 +4,14 @@
   "description": "Test site where I follow the Code Magazine article",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon -e mustache,js,html,json index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Hjalte",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "mustache-express": "^1.3.2",
     "nodemon": "^3.0.1"
   }
 }

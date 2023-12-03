@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Maintenance</title>
+        <style>
+        table, th, td {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 1em;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .text-end {
+            text-align: right;
+        }
+        </style>
+    </head>
+
+    <body>
+        <h1>Product List</h1>
+
+        {{> _productList}}
+    </body>
+</html>
