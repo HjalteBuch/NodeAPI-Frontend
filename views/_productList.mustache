@@ -1,4 +1,9 @@
-<table>
+<div class="row">
+    <div class="col text-center">
+        <h1>Product List</h1>
+    </div>
+</div>
+<table class="mt-2 table table-striped table-bordered">
     <thead>
         <tr>
             <th>Product ID</th>
@@ -12,12 +17,12 @@
     <tbody>
         {{#data}}
             <tr>
-                <td>{{productID}}</td>
-                <td>{{name}}</td>
-                <td>{{productNumber}}</td>
-                <td>{{color}}</td>
-                <td class="text-end">{{standardCost}}</td>
-                <td class="text-end">{{listPrice}}</td>
+                <td>{{ProductID}}</td>
+                <td>{{Name}}</td>
+                <td>{{ProductNumber}}</td>
+                <td>{{Color}}</td>
+                <td class="text-end">{{StandardCost}}</td>
+                <td class="text-end">{{ListPrice}}</td>
             </tr>
         {{/data}}
     </tbody>
