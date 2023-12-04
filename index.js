@@ -7,6 +7,12 @@ let mustacheExpress = require('mustache-express');
 app.set('view engine', 'mustache');
 app.engine('mustache', mustacheExpress());
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 router.use('/product', require('./routes/product'));
 app.use('/', router);
 

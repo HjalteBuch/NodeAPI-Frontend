@@ -91,4 +91,35 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+router.post('/', async (req, res, next) => {
+    try {
+        let response = {};
+        let product = req.body;
+        let data = {
+                "productID": product.productID,
+                "name": product.name,
+                "productNumber": product.productNumber,
+                "color": product.color,
+                "standardCost": product.standardCost,
+                "listPrice": product.listPrice
+            };
+        if (product.isAdding != 'false') {
+            response = await tiny.post({
+                "url": url,
+                "data": data
+            });
+        } else {
+            let request = url + `/${product.productID}`;
+            response = await tiny.put({
+                "url": request,
+                "data": data
+            });
+        }
+
+        res.redirect('/product');
+    } catch (err) {
+        next(err);
+    }
+});
+
 module.exports = router;
