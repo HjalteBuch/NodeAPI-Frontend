@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 const tiny = require('tiny-json-http');
-
 const url = 'http://localhost:3000/api/product';
 
 router.get('/', async (req, res, next) => {
@@ -72,6 +71,26 @@ router.get('/search/', async (req, res, next) => {
     }
 });
 
+router.get('/add', async (req, res, next) => {
+    try {
+        res.render('product',
+            {
+                "isListVisible": false,
+                "isAdding": true,
+                "detail": {
+                    "name": "",
+                    "productNumber": "",
+                    "color": "Red",
+                    "standardCost": 1,
+                    "listPrice": 2
+                }
+            }
+        );
+    } catch (err) {
+        next(err);
+    }
+});
+
 router.get('/:id', async (req, res, next) => {
     try {
         let request = url + `/${req.params.id}`;
@@ -104,11 +123,14 @@ router.post('/', async (req, res, next) => {
                 "listPrice": product.listPrice
             };
         if (product.isAdding != 'false') {
+            // Insert product
+            let arrayOfData = [data];
             response = await tiny.post({
                 "url": url,
-                "data": data
+                "data": arrayOfData
             });
         } else {
+            // Update product
             let request = url + `/${product.productID}`;
             response = await tiny.put({
                 "url": request,
