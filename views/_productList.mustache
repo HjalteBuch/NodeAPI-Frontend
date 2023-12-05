@@ -13,6 +13,7 @@
             <th>Color</th>
             <th class="text-end">Cost</th>
             <th class="text-end">Price</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -29,6 +30,13 @@
                 <td>{{Color}}</td>
                 <td class="text-end">{{StandardCost}}</td>
                 <td class="text-end">{{ListPrice}}</td>
+                <td>
+                    <a href="product/delete/{{ProductID}}"
+                       onclick="return confirm('Delete this Product?');"
+                       class="btn btn-danger">
+                        Delete
+                    </a>
+                </td>
             </tr>
         {{/data}}
     </tbody>

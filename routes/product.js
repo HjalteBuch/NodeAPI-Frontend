@@ -144,4 +144,14 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+router.get('/delete/:id', async (req, res, next) => {
+    try {
+        let request = url + `/${req.params.id}`;
+        response = await tiny.delete({"url": request});
+        res.redirect('/product');
+    } catch (err) {
+        next(err);
+    }
+});
+
 module.exports = router;
